@@ -1,3 +1,36 @@
+// You will be given an vector of string(s). You must sort it alphabetically (case-sensitive!!) and then return the first value.
+// The returned value must be a string, and have "***" between each of its letters.
+// You should not remove or add elements from/to the array.
+
+function twoSort(s) {
+    s.sort();
+    let outputString = '';
+    for (let i = 0; i < s[0].length-1; i++) {
+        outputString += s[0].substring(i, i+1) + '***';
+    }
+    outputString += s[0].substring(s[0].length-1);
+    return outputString;
+}
+
+//much better solution
+function twoSort(s) {
+    return s.sort()[0].split('').join('***');
+}
+
+// If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.
+// Finish the solution so that it returns the sum of all the multiples of 3 or 5 below the number passed in.
+// Note: If the number is a multiple of both 3 and 5, only count it once.
+
+function solution(number) {
+    let sum = 0;
+    for (let i = 3; i < number; i++) {
+        if (i%3 === 0 || i%5 === 0) {
+            sum += i;
+        }
+    }
+    return sum;
+}
+
 // Your task is to make a function that can take any non-negative integer as a argument and return it with its digits in descending order. 
 // Essentially, rearrange the digits to create the highest possible number.
 
@@ -45,9 +78,6 @@ function spinWords(inputStr) {
 // Note: x<=y
 
 // function divisibleCount(x, y, k) {
-//     if (y === 9223372036854776000) {
-//         return 838488366986797815
-//     }
 //     let divCount = 0;
 //     for (let i = x; i <= y; i++) {
 //         if (i%k === 0) {
