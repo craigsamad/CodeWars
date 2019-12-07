@@ -1,3 +1,65 @@
+/*
+ * Complete the 'minimumMoves' function below.
+ *
+ * The function is expected to return an INTEGER.
+ * The function accepts following parameters:
+ *  1. INTEGER_ARRAY a
+ *  2. INTEGER_ARRAY m
+ */
+
+function minimumMoves(a, m) {
+    let moveCount = 0;
+
+    for (let i = 0; i < a.length; i++) {
+        let splitA = a[i].toString().split('');
+        let splitM = m[i].toString().split('');
+
+        for (let j = 0; j < splitA.length; j++) {
+            if (splitA[j] > splitM[j]) {
+                moveCount += splitA[j] - splitM[j];
+            }
+            else if (splitA[j] < splitM[j]){
+                moveCount += splitM[j] - splitA[j];
+            }
+        }
+    }
+
+    return moveCount;
+}
+
+console.log(minimumMoves([123,543],[321,279]));
+
+/*
+ * Complete the 'fibonacci' function below.
+ *
+ * The function is expected to return an INTEGER_ARRAY.
+ * The function accepts INTEGER n as parameter.
+ */
+
+function fibonacci(n) {
+    let numMinus1 = 1;
+    let numMinus2 = 0;
+    let currentNum = 0;
+    let outputArray = [];
+
+    if (n === 1) {
+        outputArray.push(0);
+    }
+    else {
+        outputArray.push(0);
+        outputArray.push(1);
+    }
+
+    for (let i = 0; i <= n-3; i++) {
+        currentNum = numMinus1 + numMinus2;
+        numMinus2 = numMinus1;
+        numMinus1 = currentNum;
+        outputArray.push(currentNum);
+    }
+
+    return outputArray;
+}
+
 // Define a function that takes an integer argument and returns logical value true or false 
 // depending on if the integer is a prime.
 // Per Wikipedia, a prime number (or a prime) is a natural number greater than 1 that has no positive 
